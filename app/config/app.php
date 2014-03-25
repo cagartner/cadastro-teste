@@ -106,7 +106,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Davzie\LaravelBootstrap\LaravelBootstrapServiceProvider',	
+		'Davzie\LaravelBootstrap\LaravelBootstrapServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 
 	),
 
