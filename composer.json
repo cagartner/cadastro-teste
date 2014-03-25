@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"davzie/laravel-bootstrap": "1.*",
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"anahkiasen/former": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

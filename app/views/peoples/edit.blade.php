@@ -1,1 +1,1 @@
-D:\wamp\www\cagartner\cadastro-teste\app/views/peoples/edit.blade.php
+D:\wamp\www\cadastro-teste\app/views/peoples/edit.blade.php
