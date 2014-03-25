@@ -5,9 +5,9 @@
  */
 return array(
 
-    'email'         =>  'example@example.com',
-    'first-name'    =>  'David',
-    'last-name'     =>  'Example',
-    'password'      =>  'password',
+    'email'         =>  'contatoo@carlosgartner.com.br',
+    'first-name'    =>  'Carlos',
+    'last-name'     =>  'Gartner',
+    'password'      =>  'admin',
 
 );
