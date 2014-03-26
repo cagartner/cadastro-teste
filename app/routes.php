@@ -10,9 +10,16 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', function()
-{
-	return View::make('home');
-});
+Route::get('/', 'PeoplesController@index');
 
-Route::resource('peoples', 'PeoplesController');
+Route::resource('peoples', 'PeoplesController', array('names' => array(
+	'index'     => 'peoples.index',
+	'create'    => 'peoples.create',
+	'show'      => 'peoples.show',
+	'edit'      => 'peoples.edit',
+	'store'     => 'peoples.store',
+	'update'    => 'peoples.update',
+	'destroy'   => 'peoples.destroy'
+)));
+
+Route::get('relatorio', array('as' => 'relatorio', 'uses' => 'PeoplesController@relatorio'));

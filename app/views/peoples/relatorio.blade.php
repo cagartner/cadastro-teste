@@ -5,9 +5,8 @@
 <h1>Pessoas</h1>
 
 <div class="row">
-	<div class="col-md-12 text-right">
-		{{ HTML::linkRoute('peoples.create', 'Cadastrar Pessoa de SC', 'uf=sc', array('class' => 'btn btn-info')) }}
-		{{ HTML::linkRoute('peoples.create', 'Cadastrar Pessoa de PR', 'uf=pr', array('class' => 'btn btn-info')) }}
+	<div class="col-md-12">
+		@include('include.search', array('route' => 'relatorio'))
 	</div>
 </div>
 
@@ -24,8 +23,6 @@
 				<th class="text-right">Data de cadastro</th>
 				<th>UF</th>
 				<th class="text-right">Telefone(s)</th>
-				<th width="5%"></th>
-				<th width="5%"></th>
 			</tr>
 		</thead>
 
@@ -43,12 +40,6 @@
 							&num; {{$phone->phone}} <br>
 						@endforeach
 					</td>
-                    <td>{{ link_to_route('peoples.edit', 'Editar', array($people->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('peoples.destroy', $people->id))) }}
-                            {{ Form::submit('Deletar', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
 				</tr>
 			@endforeach
 		</tbody>

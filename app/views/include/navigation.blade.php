@@ -12,9 +12,8 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">Pessoas</a></li>
-          <li><a href="#contact">Relatório</a></li>
+          <li {{ Request::is('peoples*') ? 'class="active"' : '' }}>{{ HTML::linkRoute('peoples.index', "Home")}}</a></li>
+          <li {{ Request::is('relatorio') ? 'class="active"' : '' }}>{{ HTML::link('relatorio', "Relatório")}}</li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

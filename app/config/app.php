@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'pt',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -66,6 +66,17 @@ return array(
 	*/
 
 	'key' => '84AIroNVZnWd83nHabLzd3ffckhbMUGN',
+
+	/*
+	|--------------------------------------------------------------------------
+	| Localização do usuário
+	|--------------------------------------------------------------------------
+	|
+	| Sistema tem configurações diferentes para estados diferentes.
+	| Pode ser 'sc' ou 'pr'
+	|
+	*/
+	'uf'  => 'sc',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -106,9 +117,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Davzie\LaravelBootstrap\LaravelBootstrapServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Former\FormerServiceProvider',
+		'KennedyTedesco\Validation\ValidationServiceProvider',
 
 	),
 

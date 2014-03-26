@@ -67,6 +67,15 @@ App::down(function()
 	return Response::make("Be right back!", 503);
 });
 
+// Event::listen("illuminate.query", function($query, $bindings, $time, $name){
+    
+//     echo "<pre>";
+//     print_r($bindings);
+
+//     dd($query);
+    
+// });
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File

@@ -7,11 +7,11 @@
 
 
 	{{ Former::vertical_open()->rules(array(
-		'name' => 'required|max:255|alpha',
+		'name' => 'required|max:255',
 		'born' => 'date',
 		'cpf'  => 'min:14|max:14',
 		'rg'   => 'min:10',
-	))->method('POST'); }}
+	))->route('peoples.store')->method('POST'); }}
 
 	<p>Informe os dados abaixo e clique em "Salvar"</p>
 
@@ -21,13 +21,19 @@
 		
 		<section class="col-md-8">
 
-				{{ Former::text('name', "Nome:")->required() }}
+			{{ Former::text('name', "Nome:")->required() }}
+			
+			{{ Former::text('cpf', 'CPF:')->class('form-control cpf')->required() }}				
+			
+			@if (Config::get('app.uf') == 'sc')
+				{{ Former::text('rg', 'RG:')->help('Somente números')->required() }}
+
+				{{ Former::text('born', 'Data de nascimento:')->class('form-control date')->required() }}
+			@else
+				{{ Former::text('rg', 'RG:')->help('Somente números') }}
 				
-				{{ Former::text('cpf', 'CPF:')->required() }}
-
-				{{ Former::text('rg', 'RG:')->required() }}
-
-				{{ Former::text('born', 'Data de nascimento:')->required() }}
+				{{ Former::text('born', 'Data de nascimento:')->class('form-control date')->help('Você precisa ser maior de idade para se cadastrar')->required() }}
+			@endif			
 
 		</section>
 
@@ -36,7 +42,7 @@
 			<strong>Cadastre ao menos um telefone: <br><small>Você pode cadastra mais que um se preferir</small></strong>
 			<br>
 			
-			{{ Former::text('phone[]', "Telefone")->required()->id('fieldPhone') }}	
+			{{ Former::text('phone[]', "Telefone")->class('form-control phone')->required()->id('fieldPhone') }}	
 
 			<div class="return-more-phones"></div>			
 			
@@ -45,6 +51,9 @@
 		</aside>
 
 	</section>
+
+	<p>Campos com (*) são obrigatórios</p>
+	<br>
 
 	{{ Former::submit('Salvar pessoa')->class('btn btn-success') }}
 	{{ HTML::link(URL::previous(), 'Voltar', array('class' => 'btn btn-default')) }}
@@ -56,20 +65,8 @@
 {{-- Script JS para adicionar campo de telefone --}}
 @section('script')
 	
-	<script>
-
-	$(function () {
-
-		$('#addPhoneField').click(function () {
-
-			var target = $('.return-more-phones');
-
-
-
-		});
-
-	})
-
-	</script>
+	{{-- Adiciona script para máscara de input --}}
+	{{ HTML::script('js/jquery.maskedinput.min.js') }}
+	{{ HTML::script('js/people.js') }}
 
 @stop
